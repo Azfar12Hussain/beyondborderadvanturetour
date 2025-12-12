@@ -2,18 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 
 const months = [
-  { name: "JANUARY", img: "/images/january.jpg" },
-  { name: "FEBRUARY", img: "/images/february.jpg" },
-  { name: "MARCH", img: "/images/march.jpg" },
-  { name: "APRIL", img: "/images/april.jpg" },
-  { name: "MAY", img: "/images/may.jpg" },
-  { name: "JUNE", img: "/images/june.jpg" },
-  { name: "JULY", img: "/images/july.jpg" },
-  { name: "AUGUST", img: "/images/august.jpg" },
-  { name: "SEPTEMBER", img: "/images/september.jpg" },
-  { name: "OCTOBER", img: "/images/october.jpg" },
-  { name: "NOVEMBER", img: "/images/november.jpg" },
-  { name: "DECEMBER", img: "/images/december.jpg" },
+  { name: "JANUARY", img: "/asset/season/jan.jpeg" },
+  { name: "FEBRUARY", img: "/asset/season/feb.jpeg" },
+  { name: "MARCH", img: "/asset/season/mar.jpeg" },
+  { name: "APRIL", img: "/asset/season/apr.jpeg" },
+  { name: "MAY", img: "/asset/season/may.jpeg" },
+  { name: "JUNE", img: "/asset/season/jun.jpeg" },
+  { name: "JULY", img: "/asset/season/july.jpeg" },
+  { name: "AUGUST", img: "/asset/season/aug.jpeg" },
+  { name: "SEPTEMBER", img: "/asset/season/sep.jpeg" },
+  { name: "OCTOBER", img: "/asset/season/oct.jpeg" },
+  { name: "NOVEMBER", img: "/asset/season/nov.jpeg" },
+  { name: "DECEMBER", img: "/asset/season/dec.jpeg" },
 ];
 
 export default function SeasonGrid() {

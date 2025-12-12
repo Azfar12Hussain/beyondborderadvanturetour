@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 
@@ -30,12 +29,17 @@ export default function FeaturedTours() {
   };
 
   return (
-    <section className="py-16 bg-white">
+    <section
+      className="py-16"
+      style={{
+        background: "linear-gradient(135deg, #f3f4f6 0%, #e8f5e9 40%, #e3f2fd 100%)",
+      }}
+    >
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 drop-shadow-sm">
           OUR FAVORITE ADVENTURE HOLIDAYS ITINERARIES
         </h2>
-        <p className="text-gray-600 mt-2">
+        <p className="text-gray-700 mt-2 max-w-2xl mx-auto">
           These itineraries are bookable just as they are, but we would be delighted
           to tailor them to meet your personal taste and needs.
         </p>
@@ -43,7 +47,7 @@ export default function FeaturedTours() {
 
       <div className="relative max-w-7xl mx-auto px-6">
 
-        {/* LEFT RED ARROW */}
+        {/* LEFT ARROW */}
         {showArrows && (
           <button
             onClick={slideLeft}
@@ -52,7 +56,7 @@ export default function FeaturedTours() {
               bg-[#F96D41] text-white 
               w-12 h-12 
               flex items-center justify-center
-              shadow-lg
+              shadow-lg rounded-full
               z-20
             "
           >
@@ -91,7 +95,7 @@ export default function FeaturedTours() {
           />
         </div>
 
-        {/* RIGHT RED ARROW */}
+        {/* RIGHT ARROW */}
         {showArrows && (
           <button
             onClick={slideRight}
@@ -100,7 +104,7 @@ export default function FeaturedTours() {
               bg-[#F96D41] text-white 
               w-12 h-12 
               flex items-center justify-center
-              shadow-lg
+              shadow-lg rounded-full
               z-20
             "
           >
@@ -111,9 +115,9 @@ export default function FeaturedTours() {
 
       <div className="text-center mt-10">
         <Link href="/tours">
-        <button className="border border-gray-700 px-6 py-2 rounded-lg hover:bg-gray-100">
-          View All Tours
-        </button>
+          <button className="border border-gray-700 px-6 py-2 rounded-lg hover:bg-gray-100">
+            View All Tours
+          </button>
         </Link>
       </div>
     </section>
@@ -122,7 +126,7 @@ export default function FeaturedTours() {
 
 function TourCard({ img, title, duration, reviews }: any) {
   return (
-    <div className="min-w-[260px] max-w-[260px] bg-white shadow-lg rounded-lg overflow-hidden">
+    <div className="min-w-[260px] max-w-[260px] bg-white shadow-xl rounded-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
       <Image src={img} alt={title} width={300} height={200} className="h-40 w-full object-cover" />
 
       <div className="p-4">

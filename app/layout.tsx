@@ -6,6 +6,7 @@ import Navbar from "@/components/layout/Navbar";
 
 import "./globals.css";
 import HeroSlider from "@/components/home/HeroSlider";
+
 import HeroSliderClient from "@/components/home/HeroSliderClient";
 import Footer from "@/components/layout/Footer";
 
@@ -34,8 +35,9 @@ export default function RootLayout({
       <body className={geistSans.className}>
           <TopBar />
           <Navbar />
-           <HeroSliderClient/>
       
+           <HeroSliderClient/>
+
           {children}
                 <Footer />
 
