@@ -1,69 +1,80 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Search } from "lucide-react";
+import { Menu, X } from "lucide-react";
+
+const menuItems = [
+  { name: "Home", href: "/" },
+  { name: "Tours", href: "/tours" },
+  { name: "Treks", href: "/services" },
+  { name: "About Us", href: "/about" },
+  { name: "Client Stories", href: "/clients-stories" },
+  { name: "Contact", href: "/contact" },
+];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-white shadow-sm">
-      <div className="max-w-7xl mx-auto flex items-center justify-between py-4 px-4">
+    <header className="sticky top-0 z-50 bg-white shadow-sm">
+      <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
 
         {/* Logo */}
-        <Link href="/" className="flex-shrink-0">
+        <Link href="/" className="flex items-center">
           <Image
             src="/logo.png"
-            alt="Beyond Border Logo"
+            alt="Beyond Border Tours"
             width={140}
             height={60}
-            className="cursor-pointer"
+            priority
           />
         </Link>
 
-        {/* RIGHT SIDE: Menu Items + Search + Menu Icon */}
-        <div className="hidden md:flex items-center gap-6">
-          {/* Menu Items */}
-          <ul className="flex items-center gap-6 text-gray-700 font-semibold">
-            <li><Link href="/">Home</Link></li>
-            <li><Link href="/tours">Tours</Link></li>
-            <li><Link href="/about">About</Link></li>
-            <li><Link href="/services">Treks</Link></li>
-            <li><Link href="/clients-stories">Client Stories</Link></li>
-            <li><Link href="/contact">Contact</Link></li>
-          </ul>
-
-          {/* Search Icon */}
-          <button>
-            <Search size={22} className="text-gray-700 cursor-pointer" />
-          </button>
-
-          {/* Desktop Menu Icon */}
-          <button onClick={() => setOpen(!open)}>
-            {open ? <X size={26} /> : <Menu size={26} />}
-          </button>
-        </div>
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex items-center gap-8 text-gray-700 font-medium">
+          {menuItems.map((item) => (
+            <li key={item.name}>
+              <Link
+                href={item.href}
+                className="relative hover:text-orange-500 transition"
+              >
+                {item.name}
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-orange-500 transition-all group-hover:w-full" />
+              </Link>
+            </li>
+          ))}
+        </ul>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden ml-auto">
-          <button onClick={() => setOpen(!open)}>
-            {open ? <X size={26} /> : <Menu size={26} />}
-          </button>
-        </div>
-      </div>
+        <button
+          className="md:hidden"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle Menu"
+        >
+          {open ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </nav>
 
-      {/* Dropdown Menu (Mobile + Desktop menu icon) */}
+      {/* Mobile Menu */}
       {open && (
-        <ul className="md:hidden bg-white shadow-md px-6 py-4 space-y-4 text-gray-700 font-medium">
-          <li><Link href="/">Home</Link></li>
-          <li><Link href="/tours">Tours</Link></li>
-          <li><Link href="/about">About</Link></li>
-          <li><Link href="/services">Services</Link></li>
-          <li><Link href="/blog">Blog</Link></li>
-          <li><Link href="/contact">Contact</Link></li>
-        </ul>
+        <div className="md:hidden bg-white shadow-md border-t">
+          <ul className="flex flex-col px-6 py-6 space-y-5 text-gray-700 font-medium">
+            {menuItems.map((item) => (
+              <li key={item.name}>
+                <Link
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="block text-lg hover:text-orange-500 transition"
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
-    </nav>
+    </header>
   );
 }

@@ -14,7 +14,7 @@ export default function TopBar() {
         {/* Right side */}
         <div className="flex items-center gap-6">
           <p>⭐ 5 Years of Excellence</p>
-          <p>✔ Government License / DTS: 1994</p>
+          <p>✔ Corporate Unique Identification No. 0315275</p>
         </div>
 
       </div>
