@@ -1,115 +1,146 @@
+"use client"
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import { useState } from "react";
 import { tours } from "../data";
+import { itineraries } from "../itineraries";
 
-interface Props {
-  params: { slug: string };
+interface PageProps {
+  params: Promise<{
+    slug: string;
+  }>;
 }
 
-// Add tour details here
-const tourDetails: Record<string, any> = {
-  "nanga-parbat-rupal-face-trek": {
-    itinerary: ["Day 1: Arrival in Skardu", "Day 2: Drive to Rupal Village", "Day 3-9: Trekking Nanga Parbat Rupal Face", "Day 10: Return to Skardu"],
-    servicesIncluded: ["Transport","Accommodation","Meals","Guide","Camping Equipment"],
-    servicesExcluded: ["Flights","Personal Expenses","Tips"],
-    gallery: ["/images/nanga1.jpg","/images/nanga2.jpg","/images/nanga3.jpg"],
-    faq: [{q:"Best season?",a:"June to September"},{q:"Difficulty?",a:"High"}],
-    terms: ["Full payment must be made 30 days before departure.","Cancellation policy applies as per tour rules."],
-  },
-  "k2-base-camp-trek": {
-    itinerary: ["Day 1: Arrival in Skardu", "Day 2-3: Acclimatization and Trek prep", "Day 4-18: Trek to K2 Base Camp", "Day 19-21: Return to Skardu"],
-    servicesIncluded: ["Transport","Accommodation","Meals","Guide","Porters"],
-    servicesExcluded: ["Flights","Personal Expenses","Tips"],
-    gallery: ["/images/k2-1.jpg","/images/k2-2.jpg","/images/k2-3.jpg"],
-    faq: [{q:"Best season?",a:"June to August"},{q:"Difficulty?",a:"Extreme"}],
-    terms: ["Deposit required at booking.","Cancellation policy applies."],
-  },
-};
-
-export default function TourPage({ params }: Props) {
-  const slug = params.slug; // ✅ works in server component
-  const tour = tours.find((t) => t.slug === slug);
-  if (!tour) return notFound();
-
-  const details = tourDetails[slug];
+// =================== Tabs Component ===================
+function Tabs({ itinerary }: { itinerary: any }) {
+  const [activeTab, setActiveTab] = useState<"air" | "road" | "mixed">("air");
 
   return (
-    <main className="bg-white dark:bg-black text-gray-800 dark:text-white min-h-screen">
-      <header className="text-center py-12 bg-cover bg-center" style={{ backgroundImage: `url(${tour.image})` }}>
-        <h1 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">{tour.title}</h1>
-        <p className="text-gray-200 mt-2 text-lg">⏱️ {tour.duration}</p>
-      </header>
+    <div className="space-y-8">
+      {/* Tabs */}
+      <div className="flex gap-3 mb-4">
+        {[
+          { label: "By Air", value: "air" },
+          { label: "By Road", value: "road" },
+          { label: "Mixed", value: "mixed" },
+        ].map((tab) => (
+          <button
+            key={tab.value}
+            onClick={() => setActiveTab(tab.value as any)}
+            className={`px-4 py-2 rounded-md border text-sm font-medium ${
+              activeTab === tab.value
+                ? "bg-black text-white"
+                : "bg-white hover:bg-gray-100"
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
 
-      <section className="max-w-4xl mx-auto px-6 py-10 space-y-8">
-        {/* Itinerary */}
-        {details?.itinerary && (
-          <div>
-            <h2 className="text-2xl font-bold mb-4">Itinerary</h2>
-            <ul className="list-disc list-inside space-y-2">
-              {details.itinerary.map((day: string, i: number) => (<li key={i}>{day}</li>))}
-            </ul>
+      {/* Intro */}
+      <div className="bg-white rounded-xl p-6 shadow">
+        {itinerary.intro.map((p: string, i: number) => (
+          <p key={i} className="text-gray-700 mb-2">
+            {p}
+          </p>
+        ))}
+      </div>
+
+      {/* Day Wise Itinerary */}
+      {itinerary.itinerariesByType[activeTab].map((d: any, i: number) => (
+        <div key={i} className="bg-white rounded-xl shadow overflow-hidden">
+          <div className="p-6 border-b">
+            <h3 className="text-xl font-semibold">
+              {d.day}: {d.title}
+            </h3>
+            <p className="text-sm text-gray-500 mt-1">
+              {d.hotel} • {d.meals}
+            </p>
           </div>
-        )}
 
-        {/* Services Included */}
-        {details?.servicesIncluded && (
-          <div>
-            <h2 className="text-2xl font-bold mb-4">Services Included</h2>
-            <ul className="list-disc list-inside space-y-2">
-              {details.servicesIncluded.map((item: string, i: number) => (<li key={i}>{item}</li>))}
-            </ul>
-          </div>
-        )}
-
-        {/* Services Excluded */}
-        {details?.servicesExcluded && (
-          <div>
-            <h2 className="text-2xl font-bold mb-4">Services Excluded</h2>
-            <ul className="list-disc list-inside space-y-2">
-              {details.servicesExcluded.map((item: string, i: number) => (<li key={i}>{item}</li>))}
-            </ul>
-          </div>
-        )}
-
-        {/* Gallery */}
-        {details?.gallery && (
-          <div>
-            <h2 className="text-2xl font-bold mb-4">Photo Gallery</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {details.gallery.map((img: string, i: number) => (
-                <div key={i} className="relative h-48 w-full">
-                  <Image src={img} alt={`Gallery ${i}`} fill className="object-cover rounded-lg"/>
-                </div>
+          <div className="p-6">
+            <ul className="space-y-2 list-disc pl-5 text-gray-700">
+              {d.points.map((p: string, idx: number) => (
+                <li key={idx}>{p}</li>
               ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// =================== Main Tour Page ===================
+export default async function TourPage({ params }: PageProps) {
+  const { slug } = await params;
+
+  const tour = tours.find((t) => t.slug === slug);
+  if (!tour) notFound();
+
+  const itinerary = itineraries[slug];
+  if (!itinerary) notFound();
+
+  return (
+    <main className="bg-gray-100 min-h-screen">
+      {/* HERO */}
+      <div className="relative h-[55vh] w-full">
+        <Image
+          src={tour.image}
+          alt={tour.title}
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute bottom-8 left-8 text-white">
+          <h1 className="text-4xl font-bold">{itinerary.title}</h1>
+          <p className="text-lg mt-1">{itinerary.subtitle}</p>
+        </div>
+      </div>
+
+      {/* CONTENT */}
+      <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
+        {/* LEFT: Tabs & Itinerary */}
+        <div className="lg:col-span-2">
+          <Tabs itinerary={itinerary} />
+        </div>
+
+        {/* RIGHT: Trip Summary */}
+        <aside className="space-y-6">
+          <div className="bg-white rounded-xl shadow p-6">
+            <h3 className="text-lg font-semibold mb-4">Trip Summary</h3>
+
+            <div className="space-y-3 text-sm text-gray-700">
+              <p>
+                <strong>Duration:</strong> {tour.duration}
+              </p>
+              <p>
+                <strong>Reviews:</strong> ⭐ {tour.reviews}
+              </p>
+            </div>
+
+            <div className="mt-6 space-y-3">
+              <a
+                href={`https://wa.me/${itinerary.whatsapp}`}
+                target="_blank"
+                className="block w-full text-center bg-green-600 text-white py-3 rounded-lg font-medium"
+              >
+                WhatsApp Booking
+              </a>
+
+              <a
+                href={itinerary.pdf}
+                download
+                className="block w-full text-center border py-3 rounded-lg font-medium"
+              >
+                Download PDF
+              </a>
             </div>
           </div>
-        )}
-
-        {/* FAQ */}
-        {details?.faq && (
-          <div>
-            <h2 className="text-2xl font-bold mb-4">FAQ</h2>
-            <ul className="space-y-2">{details.faq.map((q:any,i:number)=>(<li key={i}><strong>{q.q}</strong> - {q.a}</li>))}</ul>
-          </div>
-        )}
-
-        {/* Terms */}
-        {details?.terms && (
-          <div>
-            <h2 className="text-2xl font-bold mb-4">Terms & Conditions</h2>
-            <ul className="list-disc list-inside space-y-2">{details.terms.map((t:string,i:number)=>(<li key={i}>{t}</li>))}</ul>
-          </div>
-        )}
-
-        {/* Reviews */}
-        {tour.reviews !== undefined && (
-          <p className="text-yellow-500 text-lg">⭐ {tour.reviews} Reviews</p>
-        )}
-
-        {/* Back link */}
-        <Link href="/tours" className="text-blue-600 hover:underline mt-6 block">← Back to Tours</Link>
-      </section>
+        </aside>
+      </div>
     </main>
   );
 }

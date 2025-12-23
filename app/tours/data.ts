@@ -1,28 +1,27 @@
 // app/tours/data.ts
 export const tours = [
-  {
+ {
     slug: "nanga-parbat-rupal-face-trek",
     image: "/asset/tours/nan.jpeg",
     title: "Nanga Parbat Rupal Face Trek | 2025 | BOOK NOW",
     duration: "09 Nights & 10 Days",
     reviews: 0,
   },
-   {
+  {
     slug: "k2-gondogoro-la-trek",
     image: "/asset/tours/k22.jpeg",
     title: "K2 Gondogoro La Trek | 2025 | BOOK NOW",
     duration: "20 Nights & 21 Days",
     reviews: 3,
   },
- 
   {
-    slug: "rakaposhi-diran-basecamp",
+    slug: "rakaposhi-diran-basecmp",
     image: "/asset/tours/raka.jpeg",
     title: "Rakaposhi and Diran Base Camp Trek | 2025 | BOOK NOW",
     duration: "14 Days & 13 Nights",
     reviews: 0,
   },
-   {
+  {
     slug: "k2-base-camp-trek",
     image: "/asset/tours/k2.jpeg",
     title: "K2 Base Camp Trek | 2025 | BOOK NOW",

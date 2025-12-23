@@ -85,7 +85,7 @@ export default function VideoGridSection() {
 
             {/* Title */}
             <div className="p-4">
-              <h3 className="font-semibold text-lg text-gray-900">{item.title}</h3>
+              <h3 className="font-semibold text-lg text-gray-900 text-center">{item.title}</h3>
             </div>
           </div>
         ))}

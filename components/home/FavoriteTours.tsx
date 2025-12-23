@@ -37,11 +37,11 @@ export default function FeaturedTours() {
     >
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 drop-shadow-sm">
-          OUR FAVORITE ADVENTURE HOLIDAYS ITINERARIES
+          OUR HANDPICKED ADVENTURE TRAVEL ITINERARIES
         </h2>
         <p className="text-gray-700 mt-2 max-w-2xl mx-auto">
-          These itineraries are bookable just as they are, but we would be delighted
-          to tailor them to meet your personal taste and needs.
+          These journeys are ready to book as designed, and we’re always happy to customize them
+           to match your travel style and preferences.
         </p>
       </div>
 
@@ -69,26 +69,26 @@ export default function FeaturedTours() {
           className="flex overflow-x-auto gap-6 scroll-smooth no-scrollbar py-4"
         >
           <TourCard
-            img="/asset/nan.jpeg"
+            img="/asset/favorite/nan.jpeg"
             title="Nanga Parbat Rupal Face Trek | 2025 | BOOK NOW"
             duration="09 Nights & 10 Days"
           />
 
           <TourCard
-            img="/asset/pic1.jpeg"
+            img="/asset/slidersection/pic1.jpeg"
             title="K2 Base Camp Trek | 2025 | BOOK NOW"
             duration="20 Nights 21 Days"
             reviews="(4 Reviews)"
           />
 
           <TourCard
-            img="/asset/pic4.jpeg"
+            img="/asset/slidersection/pic4.jpeg"
             title="Rakaposhi & Diran Base Camp Trek | 2025 | BOOK NOW"
             duration="14 Days 13 Nights"
           />
 
           <TourCard
-            img="/asset/k22.jpeg"
+            img="/asset/favorite/k22.jpeg"
             title="K2 Gondogoro La Trek | 2025 | BOOK NOW"
             duration="20 Nights 21 Days"
             reviews="(3 Reviews)"
@@ -136,9 +136,7 @@ function TourCard({ img, title, duration, reviews }: any) {
           ⏳ {duration}
         </p>
 
-        {reviews && (
-          <p className="text-yellow-500 text-sm mt-1">⭐ ⭐ ⭐ ⭐ ⭐ {reviews}</p>
-        )}
+        
       </div>
     </div>
   );

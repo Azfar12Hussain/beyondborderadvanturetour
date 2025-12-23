@@ -1,36 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useRef } from "react";
-import emailjs from "emailjs-com";
 
 export default function ContactPage() {
-  const formRef = useRef<HTMLFormElement>(null);
-
-  const sendEmail = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        "YOUR_SERVICE_ID",   // 👈 replace
-        "YOUR_TEMPLATE_ID",  // 👈 replace
-        formRef.current!,
-        "YOUR_PUBLIC_KEY"    // 👈 replace
-      )
-      .then(
-        () => {
-          alert("Message sent successfully!");
-          formRef.current?.reset();
-        },
-        () => {
-          alert("Failed to send message. Try again.");
-        }
-      );
-  };
-
   return (
     <div className="w-full min-h-screen">
-
       {/* ===== Hero Section ===== */}
       <div
         className="h-[40vh] w-full bg-cover bg-center flex items-center justify-center"
@@ -57,7 +31,7 @@ export default function ContactPage() {
       {/* ===== Contact Info + Form Section ===== */}
       <div className="w-full bg-gradient-to-r from-[#6d6b8c] to-[#c47a63] py-14 px-4">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 text-white">
-          
+
           {/* ===== Left Info ===== */}
           <div className="space-y-6">
             <h2 className="text-3xl font-semibold">Get In Touch</h2>
@@ -65,28 +39,35 @@ export default function ContactPage() {
             <div>
               <p className="font-semibold">Islamabad Office</p>
               <p>Blue Area, Islamabad, Pakistan</p>
-              <p>📞 +92 300 0000000</p>
-              <p>✉️ info@beyondbordertours.com</p>
+              <p>📞 0092-3135235207</p>
+              <p>✉️ beyondborderstoure@gmail.com</p>
             </div>
 
             <div>
               <p className="font-semibold">Hunza Office</p>
-              <p>Aliabad, Hunza Valley</p>
-              <p>📞 +92 311 0000000</p>
-              <p>✉️ hunza@beyondbordertours.com</p>
+              <p>Minapin Valley Gilgit, Pakistan.</p>
+              <p>📞 00000 – 00000000000</p>
+              <p>✉️ beyondborderstoure@gmail.com</p>
             </div>
 
             <div>
-              <p className="font-semibold">Singapore Office</p>
-              <p>Singapore City</p>
-              <p>📞 +65 00000000</p>
-              <p>✉️ singapore@beyondbordertours.com</p>
+              <p className="font-semibold">karachi Office</p>
+              <p>Numaish chorangi karachi</p>
+              <p>📞  0092-3135235207</p>
+              <p>✉️ beyondborderstoure@gmail.com</p>
             </div>
           </div>
 
           {/* ===== Contact Form ===== */}
           <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg text-black">
-            <form ref={formRef} onSubmit={sendEmail} className="space-y-4">
+            <form
+              method="POST"
+              action="https://formsubmit.co/azfar12hussain@gmail.com"
+              className="space-y-4"
+            >
+              {/* Optional FormSubmit settings */}
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
 
               <input
                 type="text"

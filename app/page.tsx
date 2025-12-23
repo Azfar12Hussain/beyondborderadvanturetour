@@ -6,12 +6,6 @@ import SeasonGride from  "@/components/home/SeasonGrid";
 import WhyTravelWithUs from "@/components/Home/WhyTravelWithUs"
 import Footer  from "@/components/layout/Footer";
 
-
-
-
-
-
-
 export default function Home() {
   return (
     <main className="w-full flex flex-col">
@@ -25,4 +19,3 @@ export default function Home() {
     </main>
   );
 }
-

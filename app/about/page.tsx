@@ -85,32 +85,51 @@ export default function AboutPage() {
       </section>
 
       {/* ================= MEET OUR TEAM ================= */}
-      <section className="bg-gray-50 py-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-center text-3xl font-bold text-orange-500">
-            Meet Our Team
-          </h2>
-          <p className="text-center text-gray-500 mt-2 mb-12">
-            No one can whistle a symphony. It takes a whole orchestra to play it.
+       <section className="bg-gray-50 py-20">
+  <div className="max-w-7xl mx-auto px-6">
+    <h2 className="text-center text-3xl font-bold text-orange-500">
+      Meet Our Team
+    </h2>
+    <p className="text-center text-gray-500 mt-2 mb-12">
+      No one can whistle a symphony. It takes a whole orchestra to play it.
+    </p>
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+      {team.map((member) => (
+        <div
+          key={member.name}
+          className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition"
+        >
+          {/* Profile Image */}
+          <div className="flex justify-center -mt-16 mb-4">
+            <Image
+              src={member.image}
+              alt={member.name}
+              width={120}
+              height={120}
+              className="rounded-full border-4 border-white object-cover bg-white"
+            />
+          </div>
+
+          {/* Name */}
+          <h3 className="text-lg font-semibold text-gray-800">
+            {member.name}
+          </h3>
+
+          {/* Role */}
+          <p className="text-sm text-orange-500 font-medium">
+            {member.role}
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-            {team.map((member) => (
-              <div key={member.name} className="text-center">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={200}
-                  height={200}
-                  className="rounded-md mx-auto object-cover"
-                />
-                <h3 className="mt-4 font-semibold">{member.name}</h3>
-                <p className="text-sm text-gray-500">{member.role}</p>
-              </div>
-            ))}
-          </div>
+          {/* Description */}
+          <p className="text-sm text-gray-500 mt-3 leading-relaxed">
+            {member.description}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
     </div>
   );
@@ -122,22 +141,34 @@ const team = [
     name: "Hassanain Shah",
     role: "Founder",
     image: "/asset/team/ceo.jpeg",
+    description:
+      "Visionary leader and travel expert with deep roots in Northern Pakistan tourism.",
   },
   {
     name: "Safdar Shah",
     role: "Managing Director",
     image: "/asset/team/pic2.jpeg",
+    description:
+      "Oversees operations and ensures seamless travel experiences for every client.",
   },
   {
     name: "Naeem Abbas",
     role: "General Manager",
     image: "/asset/team/pic3.jpeg",
+    description:
+      "Manages logistics, partnerships, and customer satisfaction across all tours.",
   },
-    {
+  {
     name: "Hassanain Shah",
     role: "Founder",
     image: "/asset/team/pic4.jpeg",
+    description:
+      "Specializes in crafting personalized adventure and cultural tour packages.",
   },
- 
- 
 ];
+
+
+  
+ 
+ 
+

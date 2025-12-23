@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import TopBar from "@/components/layout/TopBar";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
+import FloatingChat from "@/components/common/FloatingChat";
+
 
 
 import "./globals.css";
@@ -40,6 +42,7 @@ export default function RootLayout({
 
           {children}
                 <Footer />
+                 <FloatingChat />
 
       </body>
     </html>
