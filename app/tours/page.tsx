@@ -41,9 +41,7 @@ export default function ToursPage() {
                 <p className="text-sm text-gray-600 mt-2">
                   ⏱️ {tour.duration}
                 </p>
-                <p className="text-yellow-500 mt-1 text-sm">
-                  ⭐ {tour.reviews} Reviews
-                </p>
+                
               </div>
             </div>
           </Link>

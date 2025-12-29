@@ -38,24 +38,19 @@ export default function ContactPage() {
 
             <div>
               <p className="font-semibold">Islamabad Office</p>
-              <p>Blue Area, Islamabad, Pakistan</p>
-              <p>📞 0092-3135235207</p>
+              <p>khalifa heights 4th floor D1 Committi Chowk</p>
+              <p>📞 923456564307</p>
               <p>✉️ beyondborderstoure@gmail.com</p>
             </div>
 
             <div>
               <p className="font-semibold">Hunza Office</p>
-              <p>Minapin Valley Gilgit, Pakistan.</p>
-              <p>📞 00000 – 00000000000</p>
+              <p>Shahra Nagar office Hotal Cherry Garden Gilgit, Pakistan.</p>
+              <p>📞 923135235205</p>
               <p>✉️ beyondborderstoure@gmail.com</p>
             </div>
 
-            <div>
-              <p className="font-semibold">karachi Office</p>
-              <p>Numaish chorangi karachi</p>
-              <p>📞  0092-3135235207</p>
-              <p>✉️ beyondborderstoure@gmail.com</p>
-            </div>
+            
           </div>
 
           {/* ===== Contact Form ===== */}

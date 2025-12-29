@@ -48,7 +48,7 @@ export default function AboutPage() {
               Our Story
             </h2>
             <p className="text-gray-600 leading-relaxed">
-              Founded in 2010 by two local experts, Beyond Border Tours was
+              Founded in 2025 by two local experts, Beyond Border Tours was
               created with a passion for travel and adventure. We aim to
               explore Pakistan’s most unspoiled regions while offering
               authentic cultural experiences guided by locals who know the
@@ -160,7 +160,7 @@ const team = [
   },
   {
     name: "Hassanain Shah",
-    role: "Founder",
+    role: "Tour Guide",
     image: "/asset/team/pic4.jpeg",
     description:
       "Specializes in crafting personalized adventure and cultural tour packages.",

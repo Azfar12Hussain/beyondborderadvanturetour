@@ -116,26 +116,17 @@ export default async function TourPage({ params }: PageProps) {
               <p>
                 <strong>Duration:</strong> {tour.duration}
               </p>
-              <p>
-                <strong>Reviews:</strong> ⭐ {tour.reviews}
-              </p>
+             
             </div>
 
-            <div className="mt-6 space-y-3">
+           <div className="mt-6 space-y-3">
               <a
-                href={`https://wa.me/${itinerary.whatsapp}`}
+                href="https://wa.me/923135235207"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="block w-full text-center bg-green-600 text-white py-3 rounded-lg font-medium"
               >
                 WhatsApp Booking
-              </a>
-
-              <a
-                href={itinerary.pdf}
-                download
-                className="block w-full text-center border py-3 rounded-lg font-medium"
-              >
-                Download PDF
               </a>
             </div>
           </div>
