@@ -53,7 +53,7 @@ export default function HeroSlider() {
                 Thoughtfully crafted journeys for comfort, culture, and adventure.
               </p>
 
-              <button className="mt-6 bg-orange-500 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg shadow-lg hover:bg-orange-400 text-sm sm:text-base">
+              <button style={{width:'10% !important'}} className="mt-6 bg-orange-500 text-white px-4 sm:px-1 py-2 sm:py-3 rounded-lg shadow-lg hover:bg-orange-400 text-sm sm:text-base">
                 Book Now
               </button>
             </div>

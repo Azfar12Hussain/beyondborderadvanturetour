@@ -144,14 +144,16 @@ export default function NorthernPakistanBlogPage() {
               src="/asset/blog/attabad.jpeg"
               alt="Turquoise waters of Attabad Lake, Pakistan"
               width={600}
-              height={400}
+              height={0}
+              style={{height:'600px !important'}}
               className="rounded-xl shadow-md"
             />
             <Image
               src="/asset/blog/passu.jpeg"
               alt="Passu Cones mountain peaks in Hunza"
               width={600}
-              height={400}
+              height={0}
+               style={{height:'600px !important'}}
               className="rounded-xl shadow-md"
             />
           </div>
