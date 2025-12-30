@@ -52,7 +52,7 @@ export default function FloatingChat() {
             WhatsApp
           </span>
           <a
-            href={`https://wa.me/923170883383?text=${whatsappMessage}`}
+            href={`https://wa.me/923135235207?text=${whatsappMessage}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat on WhatsApp"
