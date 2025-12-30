@@ -57,7 +57,7 @@ export default function ContactPage() {
           <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg text-black">
             <form
               method="POST"
-              action="https://formsubmit.co/azfar12hussain@gmail.com"
+              action="https://formsubmit.co/ beyondbordersadventuretours@gmail.com"
               className="space-y-4"
             >
               {/* Optional FormSubmit settings */}
