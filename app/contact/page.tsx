@@ -47,7 +47,7 @@ export default function ContactPage() {
               <p className="font-semibold">Hunza Office</p>
               <p>Shahra Nagar office Hotal Cherry Garden Gilgit, Pakistan.</p>
               <p>📞 923135235205</p>
-              <p>✉️ beyondborderstoure@gmail.com</p>
+              <p>✉️ beyondbordersadventuretours@gmail.com</p>
             </div>
 
             

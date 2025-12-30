@@ -68,7 +68,7 @@ export default function FloatingChat() {
             Messenger
           </span>
           <a
-            href="https://m.me/azfar.hussain.182"
+            href="https://m.me/beyondbordersadventuretours"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat on Messenger"
@@ -84,7 +84,7 @@ export default function FloatingChat() {
             Instagram
           </span>
           <a
-            href="https://www.instagram.com/azfar.313"
+            href="https://www.instagram.com/beyondbordersadventuretours"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Visit Instagram"

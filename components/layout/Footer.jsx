@@ -62,10 +62,11 @@ export default function Footer() {
               Office # 4, 3rd floor AA plaza Chasma Chok , BA area Islamabad.
             </p>
             <p className="flex items-center gap-2 text-xs sm:text-sm mt-2">
-              <FaPhone className="text-yellow-400" /> 0092-3135235207
+              <FaPhone className="text-yellow-400" /> 0092-3456564307
+                                                        
             </p>
             <p className="flex items-center gap-2 text-xs sm:text-sm">
-              <FaEnvelope className="text-yellow-400" /> beyondborderstoure@gmail.com
+              <FaEnvelope className="text-yellow-400" /> beyondbordersadventuretours@gmail.com
             </p>
           </div>
 
@@ -78,7 +79,7 @@ export default function Footer() {
               Minapin Valley Gilgit-Baltistan, Pakistan.
             </p>
             <p className="flex items-center gap-2 text-xs sm:text-sm mt-2">
-              <FaPhone className="text-yellow-400" /> 00000 – 00000000000
+              <FaPhone className="text-yellow-400" /> 0092-3135235205
             </p>
           </div>
 
@@ -90,8 +91,11 @@ export default function Footer() {
 
       {/* COPYRIGHT */}
       <div className="border-t border-white/20 mt-16 pt-4 text-center text-xs sm:text-sm opacity-80">
-        © BBAT 2025–2030 – All rights reserved.
-      </div>
+  © BBAT 2025–2030. All rights reserved.
+  <div className="mt-1">
+    Based in Pakistan • Serving Adventures Worldwide
+  </div>
+  </div>
     </footer>
   );
 }
